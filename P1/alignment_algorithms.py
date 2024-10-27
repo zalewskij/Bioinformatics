@@ -82,7 +82,26 @@ def smith_waterman(seq1, seq2, substitution_matrix, gap_penalty):
     return score_matrix, max_positions, max_score
 
 
-def backtrack(score_matrix, seq1, seq2, i, j, alignment1, alignment2, alignments, N, substitution_matrix, gap_penalty, global_alignment=True):
+def backtrack(score_matrix: np.array, seq1: str, seq2: str, i: int, j: int, alignment1: str, alignment2: str,
+              alignments: list, N: int, substitution_matrix: np.array, gap_penalty: int, global_alignment: bool = True):
+    """
+    Args:
+        score_matrix: A score matrix from needleman_wunsh or smith_waterman algorithm
+        seq1: First DNA sequence (accepts only string made of 'A', 'T', 'G', 'C')
+        seq2: Second DNA sequence (accepts only string made of 'A', 'T', 'G', 'C')
+        i: Current index in the scoring matrix (horizontal)
+        j: Current index in the scoring matrix (vertical)
+        alignment1: modified seq1
+        alignment2: modified seq2
+        alignments: A list of up to N collected alignments
+        N: Number of maximal optimal alignments
+        substitution_matrix: A matrix that scores match/mismatch of two DNA sequences
+        gap_penalty: A penalty of aligning '-' and non-empty element of the sequence
+        global_alignment: A boolean variable that indicates if we look for global or local alignment
+
+    Returns:
+    """
+
     # base: For global and local alignments - stop if already found N maximal alignments
     if len(alignments) >= N:
         return

@@ -1,0 +1,20 @@
+Global alignment no 1:
+-TATA
+ATAT-
+Score: 11
+
+Global alignment no 2:
+TATA-
+-ATAT
+Score: 11
+
+Local alignment no 1:
+TAT
+TAT
+Score: 15
+
+Local alignment no 2:
+ATA
+ATA
+Score: 15
+
